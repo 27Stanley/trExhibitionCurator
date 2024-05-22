@@ -21,28 +21,35 @@ function App() {
 
   return (
     <>
-      <div>
-        <h1>Exhibition Curator</h1>
-        <div className="card">
-          <button onClick={() => setCount((count) => count + 1)}>
-            count is {count}
-          </button>
-        </div>
+      <div className="container">
         <div>
-          <ul>
-            {routes.map((route, index) => (
-              <li key={index}>
-                <Link to={route.path}>{route.label}</Link>
-              </li>
-            ))}
-          </ul>
+          <h1>
+            Exhibition CuratorExhibition CuratorExhibition CuratorExhibition
+            CuratorExhibition CuratorExhibition CuratorExhibition
+            CuratorExhibition CuratorExhibition CuratorExhibition
+            CuratorExhibition CuratorExhibition Curator
+          </h1>
+          <div className="card">
+            <button onClick={() => setCount((count) => count + 1)}>
+              count is {count}
+            </button>
+          </div>
+          <div>
+            <ul>
+              {routes.map((route, index) => (
+                <li key={index}>
+                  <Link to={route.path}>{route.label}</Link>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
+        <Routes>
+          {routes.map((route, index) => (
+            <Route key={index} path={route.path} element={route.component} />
+          ))}
+        </Routes>
       </div>
-      <Routes>
-        {routes.map((route, index) => (
-          <Route key={index} path={route.path} element={route.component} />
-        ))}
-      </Routes>
     </>
   );
 }
