@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./App.css";
 import NavBarComponent from "./screens/NavbarComponent";
+import Footer from "./components/Footer";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -8,6 +9,7 @@ function App() {
   return (
     <>
       <NavBarComponent />
+      <Footer />
     </>
   );
 }

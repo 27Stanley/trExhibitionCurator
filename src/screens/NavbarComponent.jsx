@@ -15,7 +15,6 @@ export default function Component() {
 
     { path: "/Gallery", label: "Gallery", component: <Gallery /> },
     { path: "/Exhibition", label: "Exhibition", component: <Exhibition /> },
-    { path: "/About", label: "About", component: <About /> },
     { path: "/Account", label: "Account", component: <Account /> },
   ];
 
