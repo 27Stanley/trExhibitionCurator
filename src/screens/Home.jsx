@@ -1,16 +1,39 @@
 import React from "react";
+import { Carousel } from "react-responsive-carousel";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 export default function Home() {
   return (
     <div>
-      {/* <h1 classNameName="text-3xl font-bold underline">Currently on HomeScreen</h1> */}
-
       <section className="text-center rounded-lg bg-primary shadow-md p-8 mb-8">
-        <img
-          src="https://static.vecteezy.com/system/resources/previews/029/974/523/large_2x/discovering-the-artistic-treasures-of-vatican-museums-in-rome-photo.jpeg"
-          alt="Artistic Treasures"
-          className="mx-auto mb-4 w-full max-w-5xl"
-        />
+        <Carousel
+          showThumbs={false}
+          showStatus={false}
+          infiniteLoop
+          autoPlay
+          interval={3000}
+          className="mx-auto mb-4 w-full max-w-4xl"
+        >
+          <div>
+            <img
+              src="https://static.vecteezy.com/system/resources/previews/029/974/523/large_2x/discovering-the-artistic-treasures-of-vatican-museums-in-rome-photo.jpeg"
+              alt="Image 1"
+            />
+          </div>
+          <div>
+            <img
+              src="https://cdn.sortiraparis.com/images/80/101654/868211-eternal-mucha-l-incroyable-exposition-sur-l-art-nouveau-debarque-au-grand-palais-immersif-img-1070.jpg"
+              alt="Image 2"
+            />
+          </div>
+          <div>
+            <img
+              src="https://cdn.thecollector.com/wp-content/uploads/2022/02/modern-art-vs-contemporary-art-artworks.jpg"
+              alt="Image 3"
+            />
+          </div>
+        </Carousel>
+
         <h2 className="text-2xl font-bold text-gray-800 mb-4">
           Explore Artistic Treasures from Around the World
         </h2>
@@ -30,7 +53,7 @@ export default function Home() {
           <img
             src="https://cdn.sortiraparis.com/images/80/101654/868211-eternal-mucha-l-incroyable-exposition-sur-l-art-nouveau-debarque-au-grand-palais-immersif-img-1070.jpg"
             alt="Eternal Elegance Exhibition"
-            className="mx-auto mb-4 w-full max-w-5xl"
+            className="mx-auto mb-4 w-full max-w-3xl"
           />
           <h3 className="text-xl font-bold text-gray-800 mb-2">
             Eternal Elegance: Renaissance Masterpieces
@@ -51,7 +74,7 @@ export default function Home() {
           <img
             src="https://i.pinimg.com/564x/06/51/c0/0651c057f5c9bc8b4a372659631a6900.jpg"
             alt="Modern Marvels Exhibition"
-            className="mx-auto mb-4 w-full max-w-xl"
+            className="mx-auto mb-4 w-full max-w-md"
           />
           <h3 className="text-xl font-bold text-gray-800 mb-2">
             Modern Marvels: Contemporary Art
