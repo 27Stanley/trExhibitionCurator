@@ -3,7 +3,7 @@ import React from "react";
 export default function About() {
   return (
     <div>
-      <h2>Currently on About</h2>
+      <h1 className="text-3xl font-bold underline">Currently on About</h1>
     </div>
   );
 }
