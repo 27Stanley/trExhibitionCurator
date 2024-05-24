@@ -12,19 +12,23 @@ import About from "../screens/About";
 export default function Component() {
   const routes = [
     { path: "/", label: "Home", component: <Home /> },
-    { path: "/Account", label: "Account", component: <Account /> },
+
     { path: "/Gallery", label: "Gallery", component: <Gallery /> },
     { path: "/Exhibition", label: "Exhibition", component: <Exhibition /> },
     { path: "/About", label: "About", component: <About /> },
+    { path: "/Account", label: "Account", component: <Account /> },
   ];
 
   return (
     <div>
       <nav className="bg-blue-500 p-4 fixed top-0 w-full z-10">
-        <ul className="flex justify-center space-x-4">
+        <ul className="flex justify-center space-x-10">
           {routes.map((route, index) => (
             <li key={index}>
-              <Link className="text-white hover:text-gray-200" to={route.path}>
+              <Link
+                className="text-white hover:text-gray-200 text-3xl font-bold"
+                to={route.path}
+              >
                 {route.label}
               </Link>
             </li>
