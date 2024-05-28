@@ -20,7 +20,7 @@ export default function Component() {
 
   return (
     <div>
-      <nav className="bg-accent p-4 fixed top-0 w-full z-10">
+      <nav className="bg-quaternary p-4 fixed top-0 w-full z-10">
         <ul className="flex justify-center space-x-10">
           {routes.map((route, index) => (
             <li key={index}>
