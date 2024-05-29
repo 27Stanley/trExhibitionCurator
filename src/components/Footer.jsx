@@ -14,7 +14,7 @@ export default function footer() {
           Join us on this journey of discovery and unlock the secrets of the
           past.
         </p>
-        <p class="text-gray-600">
+        <p className="text-gray-600">
           Contact Us: exicura@email.com | Phone: 07123 456 789
         </p>
       </section>

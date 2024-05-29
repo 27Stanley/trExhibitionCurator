@@ -11,11 +11,10 @@ import About from "../screens/About";
 
 export default function Component() {
   const routes = [
-    { path: "/", label: "Home", component: <Home /> },
-
-    { path: "/Gallery", label: "Gallery", component: <Gallery /> },
-    { path: "/Exhibition", label: "Exhibition", component: <Exhibition /> },
-    { path: "/Account", label: "Account", component: <Account /> },
+    { path: "/", label: "Home" },
+    { path: "/gallery", label: "Gallery", component: <Gallery /> },
+    { path: "/exhibition", label: "Exhibition", component: <Exhibition /> },
+    { path: "/account", label: "Account", component: <Account /> },
   ];
 
   return (
