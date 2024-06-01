@@ -1,8 +1,3 @@
-# React + Vite
+To create a web application where users can search for artworks, create personalized exhibitions, and view detailed information about each piece. Utilizing free APIs from institutions such as The Metropolitan Museum of Art and the Harvard Art Museums, users will have access to extensive art collections. The platform will provide an engaging experience by allowing users to filter and sort artworks based on various criteria, save their favorite pieces to a temporary collection, and curate personalized exhibitions that can be navigated during their session.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+The application is built with React and styled using Tailwind CSS for a modern, responsive design. Key features include to a dynamic search bar and filter options, interactive thumbnails that display detailed artwork information upon selecting, and a temporary collection feature that allows users to easily add or remove artworks. The personalized exhibition feature enables users to curate their own collections, providing a seamless and interactive way to see art.
