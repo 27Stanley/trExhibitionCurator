@@ -5,20 +5,33 @@ import { Carousel } from "react-responsive-carousel";
 import { Link } from "react-router-dom";
 
 import { fetchDepartments } from "../assets/axiosMET";
+import { fetchGallery } from "../assets/axiosHAR";
 
 export default function Gallery() {
-  const [departments, setDepartments] = useState([]);
+  const [metDepartments, setMetDepartments] = useState([]);
+  const [harDepartments, setHarDepartments] = useState([]);
   const [isLoading, setLoading] = useState(true);
 
   useEffect(() => {
     fetchDepartments()
       .then((departmentsData) => {
-        setDepartments(departmentsData);
+        setMetDepartments(departmentsData);
         setLoading(false);
       })
       .catch((err) => {
         console.log("error getting departments, error:", err);
         setLoading(false);
+      });
+  }, []);
+
+  useEffect(() => {
+    fetchGallery()
+      .then((galleryData) => {
+        setHarDepartments(galleryData);
+        console.log(galleryData);
+      })
+      .catch((err) => {
+        console.log("error getting departments, error:", err);
       });
   }, []);
 
@@ -38,9 +51,12 @@ export default function Gallery() {
       <div className="rounded-lg bg-secondary shadow-md p-6 w-full">
         <h1 className="text-xl">From Metropolitan Museum of Art</h1>
         <ul className="grid grid-rows-4 grid-flow-col gap-4">
-          {departments.map((department, index) => (
+          {metDepartments.map((department, index) => (
             <Link
-              to={`/departments/${department.displayName.replace(/ /g, "-")}`}
+              to={`/metDepartments/${department.displayName.replace(
+                / /g,
+                "-"
+              )}`}
               key={`${department.displayName}${index}`}
             >
               <li className="mb-2">{department.displayName}</li>
@@ -49,7 +65,14 @@ export default function Gallery() {
         </ul>
       </div>
       <div className="rounded-lg bg-secondary shadow-md p-6 w-full">
-        <h1 className="text-xl">From Harvard Art Museum</h1>
+        <h1 className="text-xl">From Harvard Api</h1>
+        <ul className="grid grid-rows-4 grid-flow-col gap-4">
+          {harDepartments.map((department, index) => (
+            <li key={`${department.name}${index}`} className="mb-2">
+              {department.name}
+            </li>
+          ))}
+        </ul>
       </div>
     </div>
   );
