@@ -79,16 +79,6 @@ export default function Gallery() {
             ))}
         </ul>
       </div>
-      {/* <div className="rounded-lg bg-secondary shadow-md p-6 w-full">
-        <h1 className="text-xl">From Harvard Api</h1>
-        <ul className="grid grid-rows-4 grid-flow-col gap-4">
-          {harDepartments.map((department, index) => (
-            <li key={`${department.name}${index}`} className="mb-2">
-              {department.theme}
-            </li>
-          ))}
-        </ul>
-      </div> */}
     </div>
   );
 }
