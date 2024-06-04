@@ -6,7 +6,7 @@ const request = axios.create({
   baseURL: `https://api.harvardartmuseums.org`,
 });
 
-export const fetchGallery = () => {
+export const fetchHarDepartments = () => {
   let galleryData = [];
   const totalPages = 3;
   const fetchPages = () => {

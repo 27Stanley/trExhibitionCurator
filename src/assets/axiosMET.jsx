@@ -4,7 +4,7 @@ const request = axios.create({
   baseURL: "https://collectionapi.metmuseum.org/public/collection/v1",
 });
 
-export const fetchDepartments = (department) => {
+export const fetchMetDepartments = (department) => {
   return request
     .get(`/departments`)
     .then((response) => {
@@ -20,7 +20,7 @@ export const fetchSingleDepartment = (departmentId) => {
   return request
     .get(`/objects?departmentIds=${departmentId}&hasImages=true&q=`)
     .then((response) => {
-      console.log(response, "response here");
+      // console.log(response, "response here");
       return response;
     })
     .catch((err) => {
