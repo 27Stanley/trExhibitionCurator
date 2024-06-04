@@ -27,6 +27,7 @@ export default function Gallery() {
   useEffect(() => {
     fetchHarDepartments()
       .then((galleryData) => {
+        // console.log(galleryData);
         setHarDepartments(galleryData);
       })
       .catch((err) => {
@@ -52,15 +53,14 @@ export default function Gallery() {
       <div className="rounded-lg bg-secondary shadow-md p-6 w-full">
         <h1 className="text-xl">From Metropolitan Museum of Art</h1>
         <ul className="grid grid-rows-4 grid-flow-col gap-4">
-          {metDepartments.map((department, index) => (
+          {metDepartments.map((department) => (
             <Link
-              to={`/metDepartments/${department.displayName.replace(
-                / /g,
-                "_"
-              )}`}
-              key={`${department.displayName}${index}`}
+              to={`/metDepartments/${department.departmentId}`}
+              key={`${department.displayName}${department.departmentId}`}
             >
-              <li className="mb-2">{department.displayName}</li>
+              <li className="mb-2">
+                {department.displayName} - {department.departmentId}
+              </li>
             </Link>
           ))}
         </ul>
@@ -82,7 +82,9 @@ export default function Gallery() {
                 key={`${department.name}${index}`}
                 className="mb-2"
               >
-                <li className="mb-2">{department.theme}</li>
+                <li className="mb-2">
+                  {department.theme}- {department.galleryid}
+                </li>
               </Link>
             ))}
         </ul>

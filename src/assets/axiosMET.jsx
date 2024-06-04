@@ -16,11 +16,11 @@ export const fetchMetDepartments = (department) => {
 };
 
 export const fetchSingleDepartment = (departmentId) => {
-  console.log(departmentId);
+  console.log(departmentId, "lalal");
   return request
     .get(`/objects?departmentIds=${departmentId}&hasImages=true&q=`)
     .then((response) => {
-      // console.log(response, "response here");
+      console.log(response, "response here");
       return response;
     })
     .catch((err) => {
