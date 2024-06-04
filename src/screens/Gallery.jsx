@@ -67,13 +67,28 @@ export default function Gallery() {
       <div className="rounded-lg bg-secondary shadow-md p-6 w-full">
         <h1 className="text-xl">From Harvard Api</h1>
         <ul className="grid grid-rows-4 grid-flow-col gap-4">
+          {harDepartments
+            .filter(
+              (department) =>
+                department.theme && department.theme !== "Currently Closed"
+            )
+            .map((department, index) => (
+              <li key={`${department.name}${index}`} className="mb-2">
+                {department.theme}
+              </li>
+            ))}
+        </ul>
+      </div>
+      {/* <div className="rounded-lg bg-secondary shadow-md p-6 w-full">
+        <h1 className="text-xl">From Harvard Api</h1>
+        <ul className="grid grid-rows-4 grid-flow-col gap-4">
           {harDepartments.map((department, index) => (
             <li key={`${department.name}${index}`} className="mb-2">
-              {department.name}
+              {department.theme}
             </li>
           ))}
         </ul>
-      </div>
+      </div> */}
     </div>
   );
 }
