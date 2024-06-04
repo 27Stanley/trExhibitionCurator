@@ -2,19 +2,17 @@ import React from "react";
 
 import { Routes, Route, Link } from "react-router-dom";
 
-import TestScreen from "./About";
 import Home from "../screens/Home";
 import Account from "../screens/Account";
 import Gallery from "../screens/Gallery";
 import Exhibition from "../screens/Exhibition";
-import About from "../screens/About";
 
 export default function Component() {
   const routes = [
-    { path: "/", label: "Home" },
-    { path: "/gallery", label: "Gallery", component: <Gallery /> },
-    { path: "/exhibition", label: "Exhibition", component: <Exhibition /> },
-    { path: "/account", label: "Account", component: <Account /> },
+    { path: "/", element: <Home />, label: "Home" },
+    { path: "/gallery", element: <Gallery />, label: "Gallery" },
+    { path: "/exhibition", element: <Exhibition />, label: "Exhibition" },
+    { path: "/account", element: <Account />, label: "Account" },
   ];
 
   return (
@@ -37,7 +35,7 @@ export default function Component() {
       <div className="pt-16">
         <Routes>
           {routes.map((route, index) => (
-            <Route key={index} path={route.path} element={route.component} />
+            <Route key={index} path={route.path} element={route.element} />
           ))}
         </Routes>
       </div>

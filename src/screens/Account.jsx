@@ -6,6 +6,7 @@ export default function Account() {
       <h1 className="text-3xl font-bold underline">
         Currently on Account Screen
       </h1>
+      <button>View Curated Art</button>
     </div>
   );
 }
