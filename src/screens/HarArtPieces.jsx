@@ -2,33 +2,21 @@ import React from "react";
 
 import { useState, useEffect } from "react";
 import { useParams } from "react-router";
-import { fetchSingleDepartment, fetchObjectsById } from "../utils/axiosMET";
+
+import { fetchHarDepartmentObjects } from "../utils/axiosHAR";
 
 export default function MetArtPieces() {
   const [artPieces, setArtPieces] = useState([]);
-  const [artObjects, setArtObjects] = useState([]);
 
   const [isLoading, setIsLoading] = useState(true);
 
-  const { departmentId } = useParams();
+  const { galleryid } = useParams();
 
   useEffect(() => {
     const fetchData = () => {
-      fetchSingleDepartment(departmentId)
+      fetchHarDepartmentObjects(galleryid)
         .then((response) => {
-          const limitedArtPieces = response.objectIDs.slice(0, 10);
-          //   console.log(limitedArtPieces);
-
-          const fetchPromises = limitedArtPieces.map((objectId) =>
-            fetchObjectsById(objectId)
-          );
-
-          return Promise.all(fetchPromises);
-        })
-        .then((artPiecesData) => {
-          console.log(artPiecesData);
-          setArtPieces(artPiecesData);
-          setIsLoading(false);
+          setArtPieces(response.records);
         })
         .catch((err) => {
           console.log("Error fetching art pieces:", err);
@@ -37,7 +25,12 @@ export default function MetArtPieces() {
     };
 
     fetchData();
-  }, [departmentId]);
+    setIsLoading(false);
+  }, [galleryid]);
+
+  useEffect(() => {
+    console.log("Art Pieces:", artPieces);
+  }, [artPieces]);
 
   return (
     <div className="bg-white">
@@ -59,22 +52,25 @@ export default function MetArtPieces() {
           {artPieces.map((item, index) => (
             <div
               key={index}
-              className="flex flex-col items-center justify-center aspect-h-1 aspect-w-1 overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-8 w-[20vw]"
+              className="flex flex-col items-center justify-center aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-8 xl:aspect-w-7"
             >
               <h1 className="mt-4 text-sm text-gray-700">
-                Item Id: {item.objectID}
+                Item Id: {item.objectid}
               </h1>
               <h1 className="mt-1 text-lg font-medium text-gray-900">
                 Item Name: {item.title}
               </h1>
               <img
-                src={item.primaryImageSmall}
-                alt={item.objectName}
-                className="h-auto w-50% object-cover object-center group-hover:opacity-75"
+                src={item.primaryimageurl}
+                alt={item.title}
+                className="h-auto w-1/2 object-cover object-center group-hover:opacity-75"
               />
-              <h1>classification: {item.classification}</h1>
-              <h1>medium: {item.medium}</h1>
-              <h1>country: {item.culture}</h1>
+              <h1>
+                {/* {item.country}
+                {item.classification}
+                {item.medium}
+                {item.country} */}
+              </h1>
             </div>
           ))}
         </div>

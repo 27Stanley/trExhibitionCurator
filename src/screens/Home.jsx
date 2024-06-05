@@ -9,7 +9,7 @@ export default function Home() {
 
   return (
     <div>
-      <section className="text-center roundfed-lg bg-secondary shadow-md p-8 mb-8">
+      <section className="text-center roundfed-lg bg-secondary shadow-md p-8 mb-8 mt-8">
         <Carousel
           showThumbs={false}
           showStatus={false}
