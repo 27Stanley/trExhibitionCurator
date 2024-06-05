@@ -3,7 +3,7 @@ import React from "react";
 export default function footer() {
   return (
     <div>
-      <section className="text-center rounded-lg bg-primary shadow-md p-4 mt-4">
+      <section className="text-center bg-primary shadow-md p-4 mt-4">
         <h2 className="text-lg font-bold text-gray-800 mb-4">About Us</h2>
         <p className="text-base text-gray-700 max-w-screen-2xl mx-auto">
           ExiCura believe that art has the power to inspire, educate, and
