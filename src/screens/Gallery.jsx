@@ -4,8 +4,8 @@ import { Carousel } from "react-responsive-carousel";
 
 import { Link } from "react-router-dom";
 
-import { fetchMetDepartments } from "../assets/axiosMET";
-import { fetchHarDepartments } from "../assets/axiosHAR";
+import { fetchMetDepartments } from "../utils/axiosMET";
+import { fetchHarDepartments } from "../utils/axiosHAR";
 
 export default function Gallery() {
   const [metDepartments, setMetDepartments] = useState([]);
@@ -16,7 +16,6 @@ export default function Gallery() {
     fetchMetDepartments()
       .then((departmentsData) => {
         setMetDepartments(departmentsData);
-        setLoading(false);
       })
       .catch((err) => {
         console.log("error getting departments, error:", err);
@@ -34,6 +33,14 @@ export default function Gallery() {
         console.log("error getting departments, error:", err);
       });
   }, []);
+
+  useEffect(() => {
+    if (metDepartments.length > 0 && harDepartments.length > 0) {
+      const timer = setTimeout(() => {
+        setLoading(false);
+      }, 500);
+    }
+  }, [metDepartments, harDepartments]);
 
   return isLoading ? (
     <div className="flex items-center justify-center">
@@ -58,13 +65,15 @@ export default function Gallery() {
               to={`/metDepartments/${department.departmentId}`}
               key={`${department.displayName}${department.departmentId}`}
             >
-              <li className="mb-2">{department.displayName}</li>
+              <li className="mb-2 hover:text-quaternary">
+                {department.displayName}
+              </li>
             </Link>
           ))}
         </ul>
       </div>
       <div className="rounded-lg bg-secondary shadow-md p-6 w-full">
-        <h1 className="text-xl">From Harvard Api</h1>
+        <h1 className="text-xl">From Harvard Arts Museum</h1>
         <ul className="grid grid-rows-4 grid-flow-col gap-4">
           {harDepartments
             .filter(
@@ -73,15 +82,12 @@ export default function Gallery() {
             )
             .map((department, index) => (
               <Link
-                to={`/harvardDepartments/${department.theme.replace(
-                  / /g,
-                  "_"
-                )}`}
+                to={`/harvardDepartments/${department.galleryid}`}
                 key={`${department.name}${index}`}
-                className="mb-2"
+                className="mb-2 hover:text-quaternary"
               >
                 <li className="mb-2">
-                  {department.theme}- {department.galleryid}
+                  {department.theme} - (Department id: {department.galleryid})
                 </li>
               </Link>
             ))}
