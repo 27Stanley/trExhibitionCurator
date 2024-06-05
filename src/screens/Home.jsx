@@ -2,10 +2,14 @@ import React from "react";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 
+import { useState } from "react";
+
 export default function Home() {
+  const [isLoading, setLoading] = useState(true);
+
   return (
     <div>
-      <section className="text-center rounded-lg bg-secondary shadow-md p-8 mb-8">
+      <section className="text-center roundfed-lg bg-secondary shadow-md p-8 mb-8">
         <Carousel
           showThumbs={false}
           showStatus={false}

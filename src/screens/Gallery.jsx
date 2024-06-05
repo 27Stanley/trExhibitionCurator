@@ -58,9 +58,7 @@ export default function Gallery() {
               to={`/metDepartments/${department.departmentId}`}
               key={`${department.displayName}${department.departmentId}`}
             >
-              <li className="mb-2">
-                {department.displayName} - {department.departmentId}
-              </li>
+              <li className="mb-2">{department.displayName}</li>
             </Link>
           ))}
         </ul>

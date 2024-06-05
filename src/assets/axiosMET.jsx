@@ -16,12 +16,12 @@ export const fetchMetDepartments = (department) => {
 };
 
 export const fetchSingleDepartment = (departmentId) => {
-  console.log(departmentId, "lalal");
+  console.log(`fetching from department no.${departmentId}`);
   return request
     .get(`/objects?departmentIds=${departmentId}&hasImages=true&q=`)
     .then((response) => {
-      console.log(response, "response here");
-      return response;
+      // console.log(response.data, "single department response here");
+      return response.data;
     })
     .catch((err) => {
       console.log("error fetching single department, error:", err);
@@ -29,12 +29,11 @@ export const fetchSingleDepartment = (departmentId) => {
 };
 
 export const fetchObjectsById = (objectId) => {
-  console.log(objectId);
   return request
     .get(`/objects/${objectId}`)
     .then((response) => {
-      console.log(response, "objects response");
-      return response;
+      // console.log(response.data, "objects response");
+      return response.data;
     })
     .catch((err) => {
       console.log("error fetching object, error:", err);
