@@ -6,12 +6,18 @@ import Home from "../screens/Home";
 import Account from "../screens/Account";
 import Gallery from "../screens/Gallery";
 import Exhibition from "../screens/Exhibition";
+import Search from "../screens/Search";
 
 export default function Component() {
   const routes = [
     { path: "/", element: <Home />, label: "Home" },
     { path: "/gallery", element: <Gallery />, label: "Gallery" },
     { path: "/exhibition", element: <Exhibition />, label: "Exhibition" },
+    {
+      path: "/search_and_filter",
+      element: <Search />,
+      label: "Find Art",
+    },
     { path: "/account", element: <Account />, label: "Account" },
   ];
 
