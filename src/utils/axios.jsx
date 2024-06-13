@@ -10,4 +10,8 @@ const test = () => {
   });
 };
 
-// const getUser
+const getSingleUser = (username) => {
+  request.get("users").then((response) => {
+    console.log(response.data);
+  });
+};
