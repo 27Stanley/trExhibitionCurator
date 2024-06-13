@@ -19,12 +19,12 @@ const SearchBar = () => {
         type="text"
         value={query}
         onChange={handleInputChange}
-        placeholder="Search..."
-        className="px-4 py-2 text-lg border border-gray-300 rounded mr-2 w-72"
+        placeholder="Search Criteria..."
+        className="px-4 py-2 text- border border-gray-300 rounded mr-2 w-72"
       />
       <button
         onClick={handleSearch}
-        className="px-4 py-2 text-lg text-white bg-blue-500 rounded hover:bg-blue-600 focus:outline-none"
+        className="px-4 py-2 text-base text-white bg-blue-500 rounded hover:bg-blue-600 focus:outline-none"
       >
         Search
       </button>

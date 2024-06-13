@@ -21,8 +21,8 @@ export default function Exhibition() {
   };
 
   return (
-    <div className="h-[95vh] flex-col items-center justify-center">
-      <form className="flex space-x-4">
+    <div className="h-[95vh] flex-col items-center justify-center mt-10 ml-5">
+      <form className="flex space-x-8">
         <SearchBar />
         <div>
           <label

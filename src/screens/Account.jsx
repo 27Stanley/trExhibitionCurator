@@ -1,11 +1,9 @@
 import React from "react";
+import User from "../components/User";
 
 export default function Account() {
   return (
-    <div className="h-[95vh] flex items-center justify-center">
-      <h1 className="text-3xl font-bold underline">
-        Currently on Account Screen
-      </h1>
+    <div className="h-[95vh] flex-col items-center justify-center">
       <button>View Curated Art</button>
     </div>
   );

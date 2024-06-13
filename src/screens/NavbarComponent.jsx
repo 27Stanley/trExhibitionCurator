@@ -8,6 +8,8 @@ import Gallery from "../screens/Gallery";
 import Exhibition from "../screens/Exhibition";
 import Search from "../screens/Search";
 
+import User from "../components/User";
+
 export default function Component() {
   const routes = [
     { path: "/", element: <Home />, label: "Home" },
@@ -22,9 +24,9 @@ export default function Component() {
   ];
 
   return (
-    <div>
-      <nav className="bg-quaternary p-4 fixed top-0 w-full z-10">
-        <ul className="flex justify-center space-x-10">
+    <div className="mb-10">
+      <nav className="bg-quaternary p-4 fixed top-0 w-full z-10 flex justify-between items-center">
+        <ul className="flex space-x-10">
           {routes.map((route, index) => (
             <li key={index}>
               <Link
@@ -36,6 +38,9 @@ export default function Component() {
             </li>
           ))}
         </ul>
+        <div className="flex items-center">
+          <User className="ml-4 text-xl text-yellow-300 font-medium" />
+        </div>
       </nav>
 
       <div className="pt-16">
