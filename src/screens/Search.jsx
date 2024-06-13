@@ -21,8 +21,8 @@ export default function Exhibition() {
   };
 
   return (
-    <div className="h-[95vh] flex-col items-center justify-center">
-      <form className="flex space-x-4">
+    <div className="h-[95vh] flex-col items-center justify-center mt-10 ml-5">
+      <form className="flex space-x-8">
         <SearchBar />
         <div>
           <label
@@ -67,30 +67,6 @@ export default function Exhibition() {
             <option value="installation">Installation</option>
           </select>
         </div>
-        {/* <div>
-          <label
-            htmlFor="year"
-            className="block text-sm font-medium text-gray-700"
-          >
-            Year
-          </label>
-          <select
-            id="year"
-            name="year"
-            value={year}
-            onChange={handleYearChange}
-            className="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-          >
-            <option value="">Select a year</option>
-            <option value="2000-Current">2000-Current</option>
-            <option value="1900-2000">1900-2000</option>
-            <option value="1800-1900">1800-1900</option>
-            <option value="1700-1800">1700-1800</option>
-            <option value="1500-1700">1700-1800</option>
-            <option value="1000-1500">1000-1500</option>
-            <option value="0000-1000">0000-1000</option>
-          </select>
-        </div> */}
         <div>
           <label
             htmlFor="Database"
