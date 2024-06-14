@@ -86,9 +86,7 @@ export default function Gallery() {
                 key={`${department.name}${index}`}
                 className="mb-2 hover:text-quaternary"
               >
-                <li className="mb-2">
-                  {department.theme} - (Department id: {department.galleryid})
-                </li>
+                <li className="mb-2">{department.theme}</li>
               </Link>
             ))}
         </ul>

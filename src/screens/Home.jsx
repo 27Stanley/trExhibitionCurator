@@ -47,7 +47,7 @@ export default function Home() {
           and discover a treasure trove of artistic masterpieces spanning
           centuries.
         </p>
-        <button className="mt-4 px-6 py-2 bg-quaternary text-slate-50 rounded-lg hover:bg-tertiary">
+        <button className="mt-4 px-6 py-2 bg-accent text-slate-800 rounded-lg hover:bg-tertiary hover:text-slate-50">
           Start Exploring
         </button>
       </section>
@@ -71,7 +71,7 @@ export default function Home() {
               Raphael, and the timeless allure of Botticelli's Birth of Venus.
               Be captivated by the beauty and grandeur of the Renaissance.
             </p>
-            <button className="mt-4 px-6 py-2 bg-quaternary text-slate-50 rounded-lg hover:bg-tertiary">
+            <button className="mt-4 px-6 py-2 bg-accent text-slate-800 rounded-lg hover:bg-tertiary hover:text-slate-50">
               Explore Renaissance Masterpieces
             </button>
           </div>
@@ -93,7 +93,7 @@ export default function Home() {
             vibrant colors, unique textures, and thought-provoking themes that
             define contemporary art.
           </p>
-          <button className="mt-4 px-6 py-2 bg-quaternary text-slate-50 rounded-lg hover:bg-tertiary">
+          <button className="mt-4 px-6 py-2 bg-accent text-slate-800 rounded-lg hover:bg-tertiary hover:text-slate-50">
             Explore Contemporary Art
           </button>
         </div>
