@@ -38,7 +38,7 @@ export const fetchHarDepartments = () => {
 
 export const fetchHarDepartmentObjects = (galleryid) => {
   // console.log(`fetching from department no.${galleryid}`);
-  const resSize = 36;
+  const resSize = 100;
   return request
     .get(
       `/object?gallery=${galleryid}&hasimage=1&size=${resSize}&apikey=${apiKey}`
