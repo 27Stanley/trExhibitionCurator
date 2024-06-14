@@ -1,6 +1,5 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import { Carousel } from "react-responsive-carousel";
 
 import { Link } from "react-router-dom";
 
@@ -38,7 +37,7 @@ export default function Gallery() {
     if (metDepartments.length > 0 && harDepartments.length > 0) {
       const timer = setTimeout(() => {
         setLoading(false);
-      }, 500);
+      }, 300);
     }
   }, [metDepartments, harDepartments]);
 
@@ -86,9 +85,7 @@ export default function Gallery() {
                 key={`${department.name}${index}`}
                 className="mb-2 hover:text-quaternary"
               >
-                <li className="mb-2">
-                  {department.theme} - (Department id: {department.galleryid})
-                </li>
+                <li className="mb-2">{department.theme}</li>
               </Link>
             ))}
         </ul>

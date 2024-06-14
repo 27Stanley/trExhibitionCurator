@@ -8,7 +8,7 @@ const request = axios.create({
 
 export const fetchHarDepartments = () => {
   let galleryData = [];
-  const totalPages = 3;
+  const totalPages = 10;
   const fetchPages = () => {
     let promises = [];
 
@@ -24,7 +24,6 @@ export const fetchHarDepartments = () => {
             err
           );
         });
-
       promises.push(promise);
     }
 
@@ -32,19 +31,36 @@ export const fetchHarDepartments = () => {
   };
 
   return fetchPages().then(() => {
+    console.log(galleryData);
     return galleryData;
   });
 };
 
 export const fetchHarDepartmentObjects = (galleryid) => {
-  console.log(`fetching from department no.${galleryid}`);
+  // console.log(`fetching from department no.${galleryid}`);
+  const resSize = 100;
   return request
-    .get(`/object?gallery=${galleryid}&hasimage=1&apikey=${apiKey}`)
+    .get(
+      `/object?gallery=${galleryid}&hasimage=1&size=${resSize}&apikey=${apiKey}`
+    )
     .then((response) => {
+      console.log(response.data);
       return response.data;
     })
     .catch((err) => {
       console.log("error fetching object, error:", err);
+    });
+};
+
+export const fetchHarObjectById = (objectId) => {
+  console.log(objectId);
+  return request
+    .get(`/object/${objectId}`)
+    .then((response) => {
+      console.log(response.data);
+    })
+    .catch((err) => {
+      console.log("fetching single object err:", err);
     });
 };
 

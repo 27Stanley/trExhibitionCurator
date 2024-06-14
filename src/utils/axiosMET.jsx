@@ -16,7 +16,7 @@ export const fetchMetDepartments = (department) => {
 };
 
 export const fetchSingleDepartment = (departmentId) => {
-  console.log(`fetching from department no.${departmentId}`);
+  // console.log(`fetching from department no.${departmentId}`);
   return request
     .get(`/objects?departmentIds=${departmentId}&hasImages=true&q=`)
     .then((response) => {
@@ -28,7 +28,7 @@ export const fetchSingleDepartment = (departmentId) => {
     });
 };
 
-export const fetchObjectsById = (objectId) => {
+export const fetchMetObjectsById = (objectId) => {
   return request
     .get(`/objects/${objectId}`)
     .then((response) => {

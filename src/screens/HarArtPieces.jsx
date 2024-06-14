@@ -12,6 +12,16 @@ export default function MetArtPieces() {
 
   const { galleryid } = useParams();
 
+  const [currentPage, setCurrentPage] = useState(1);
+  const totalPages = 3;
+  const itemsPerPage = 12;
+
+  const startShowImageIndex = (currentPage - 1) * itemsPerPage;
+  const showCurrentArtPieces = artPieces.slice(
+    startShowImageIndex,
+    startShowImageIndex + itemsPerPage
+  );
+
   useEffect(() => {
     const fetchData = () => {
       fetchHarDepartmentObjects(galleryid)
@@ -27,10 +37,6 @@ export default function MetArtPieces() {
     fetchData();
     setIsLoading(false);
   }, [galleryid]);
-
-  useEffect(() => {
-    console.log("Art Pieces:", artPieces);
-  }, [artPieces]);
 
   return (
     <div className="bg-white">
@@ -48,37 +54,58 @@ export default function MetArtPieces() {
           </section>
         </div>
       ) : (
-        <div className="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8 mt-8">
-          {artPieces.map((item, index) => (
+        <div className="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8 mt-8 justify-items-center">
+          {showCurrentArtPieces.map((item, index) => (
             <div
               key={index}
-              className="flex flex-col items-center justify-center aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-8 xl:aspect-w-7"
+              className="flex flex-col items-center justify-center aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-8 xl:aspect-w-7 px-3"
             >
               <h1 className="mt-4 text-sm text-gray-700">
                 Item Id: {item.objectid}
               </h1>
               <h1 className="mt-1 text-lg font-medium text-gray-900">
-                Item Name: {item.title}
+                {item.title}
               </h1>
               <img
                 src={item.primaryimageurl}
                 alt={item.title}
-                className="h-auto w-1/2 object-cover object-center group-hover:opacity-75"
+                className="h-96 object-cover object-center group-hover:opacity-75 "
               />
-              <h1>
-                {/* {item.country}
-                {item.classification}
-                {item.medium}
-                {item.country} */}
-              </h1>
-              <button class="rounded-md bg-white px-2.5 py-1.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">
-                {" "}
-                add to collection{" "}
+              <h1>classification: {item.classification}</h1>
+              <h1>medium: {item.medium}</h1>
+              <h1>country: {item.culture}</h1>
+              <button className="rounded-md bg-white px-2.5 py-1.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">
+                add to collection
               </button>
             </div>
           ))}
         </div>
       )}
+      <div className="flex items-center justify-center m-10">
+        <button
+          onClick={() => {
+            setCurrentPage((currentPage) => currentPage - 1);
+          }}
+          disabled={currentPage === 1}
+          className="min-w-36 rounded-md bg-white px-5 py-3 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 m-2
+          disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none"
+        >
+          Previous Page
+        </button>
+        <p className="px-5 py-3 text-xl font-semibold text-gray-900 hover:bg-gray-50 m-2">
+          Page {currentPage}
+        </p>
+        <button
+          onClick={() => {
+            setCurrentPage((currentPage) => currentPage + 1);
+          }}
+          disabled={currentPage === totalPages}
+          className="min-w-36 rounded-md bg-white px-5 py-3 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 m-2
+          disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none"
+        >
+          Next Page
+        </button>
+      </div>
     </div>
   );
 }
