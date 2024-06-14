@@ -4,26 +4,26 @@ import { useState } from "react";
 import SearchBar from "../components/SearchBar";
 
 export default function Exhibition() {
-  const [category, setCategory] = useState("");
-  const [database, setDatabase] = useState("");
-  const [medium, setMedium] = useState("");
+  // const [category, setCategory] = useState("");
+  // const [database, setDatabase] = useState("");
+  // const [medium, setMedium] = useState("");
 
-  const handleCategoryChange = (event) => {
-    setCategory(event.target.value);
-  };
+  // const handleCategoryChange = (event) => {
+  //   setCategory(event.target.value);
+  // };
 
-  const handleDatabaseChange = (event) => {
-    setDatabase(event.target.value);
-  };
+  // const handleDatabaseChange = (event) => {
+  //   setDatabase(event.target.value);
+  // };
 
-  const handleMediumChange = (event) => {
-    setMedium(event.target.value);
-  };
+  // const handleMediumChange = (event) => {
+  //   setMedium(event.target.value);
+  // };
 
   return (
-    <div className="h-[95vh] flex-col items-center justify-center mt-10 ml-5">
-      <form className="flex space-x-8">
-        <SearchBar />
+    <div className="h-[95vh] flex items-x-center justify-center mt-12">
+      <SearchBar />
+      {/* <form className="flex space-x-8">
         <div>
           <label
             htmlFor="category"
@@ -87,7 +87,7 @@ export default function Exhibition() {
             <option value="All">All</option>
           </select>
         </div>
-      </form>
+      </form> */}
     </div>
   );
 }

@@ -34,7 +34,7 @@ export default function User() {
       {loggedIn ? (
         <div>
           <p className="text-2xl font-bold text-slate-100">Hello {username}</p>
-          <p>Your User Id: {userId}</p>
+          <p>User Id: {userId}</p>
         </div>
       ) : (
         <div>

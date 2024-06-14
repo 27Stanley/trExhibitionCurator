@@ -48,4 +48,8 @@ const getEachPieceOfArt = (curatedArtArr) => {
   });
 };
 
+const addToArtCollection = (userId, objectID) => {};
+
 getUsersArtCollection("666a315d423c437f3cccce63");
+
+// /artCollections/:collectionId

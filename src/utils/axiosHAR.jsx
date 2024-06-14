@@ -31,7 +31,7 @@ export const fetchHarDepartments = () => {
   };
 
   return fetchPages().then(() => {
-    console.log(galleryData);
+    // console.log(galleryData);
     return galleryData;
   });
 };
@@ -44,7 +44,7 @@ export const fetchHarDepartmentObjects = (galleryid) => {
       `/object?gallery=${galleryid}&hasimage=1&size=${resSize}&apikey=${apiKey}`
     )
     .then((response) => {
-      console.log(response.data);
+      // console.log(response.data);
       return response.data;
     })
     .catch((err) => {
@@ -57,7 +57,8 @@ export const fetchHarObjectById = (objectId) => {
   return request
     .get(`/object/${objectId}`)
     .then((response) => {
-      console.log(response.data);
+      // console.log(response.data);
+      return response.data;
     })
     .catch((err) => {
       console.log("fetching single object err:", err);

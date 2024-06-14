@@ -15,7 +15,7 @@ export default function footer() {
           past.
         </p>
         <p className="text-gray-600">
-          Contact Us: exicura@email.com | Phone: 07123 456 789
+          Contact: exicura@email.com | Phone: 07123 456 789
         </p>
       </section>
     </div>

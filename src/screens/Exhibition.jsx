@@ -1,5 +1,5 @@
 import React from "react";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { UserContext } from "../components/UserContext";
 
 import { fetchHarObjectById } from "../utils/axiosHAR";
@@ -18,7 +18,7 @@ export default function Exhibition() {
 
   return (
     <div>
-      <p>exhibition page</p>
+      <h1 className="mt-16">hello</h1>
     </div>
   );
 }
