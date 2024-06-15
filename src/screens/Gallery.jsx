@@ -35,7 +35,7 @@ export default function Gallery() {
 
   useEffect(() => {
     if (metDepartments.length > 0 && harDepartments.length > 0) {
-      const timer = setTimeout(() => {
+      setTimeout(() => {
         setLoading(false);
       }, 300);
     }
@@ -55,16 +55,18 @@ export default function Gallery() {
       </section>
     </div>
   ) : (
-    <div className="grid grid-cols-1 md:grid-cols-1 gap-8 mt-8">
-      <div className="rounded-lg bg-secondary shadow-md p-6 w-full">
-        <h1 className="text-xl">From Metropolitan Museum of Art</h1>
-        <ul className="grid grid-rows-4 grid-flow-col gap-4">
+    <div className="grid grid-cols-1 md:grid-cols-1 gap-8 mt-16">
+      <div className="rounded-lg bg-secondary shadow-md p-6 w-full ">
+        <h1 className="text-xl py-3 font-medium">
+          From Metropolitan Museum of Art
+        </h1>
+        <ul className="grid grid-rows-4 grid-flow-col gap-4 py-3">
           {metDepartments.map((department) => (
             <Link
               to={`/metDepartments/${department.departmentId}`}
               key={`${department.displayName}${department.departmentId}`}
             >
-              <li className="mb-2 hover:text-quaternary">
+              <li className="mb-2 hover:text-accent text-lg">
                 {department.displayName}
               </li>
             </Link>
@@ -72,8 +74,8 @@ export default function Gallery() {
         </ul>
       </div>
       <div className="rounded-lg bg-secondary shadow-md p-6 w-full">
-        <h1 className="text-xl">From Harvard Arts Museum</h1>
-        <ul className="grid grid-rows-4 grid-flow-col gap-4">
+        <h1 className="text-xl py-3 font-medium">From Harvard Arts Museum</h1>
+        <ul className="grid grid-rows-4 grid-flow-col gap-4 py-3">
           {harDepartments
             .filter(
               (department) =>
@@ -83,7 +85,7 @@ export default function Gallery() {
               <Link
                 to={`/harvardDepartments/${department.galleryid}`}
                 key={`${department.name}${index}`}
-                className="mb-2 hover:text-quaternary"
+                className="mb-2 hover:text-accent text-lg"
               >
                 <li className="mb-2">{department.theme}</li>
               </Link>

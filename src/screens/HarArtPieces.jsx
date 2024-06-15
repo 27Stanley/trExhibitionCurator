@@ -5,6 +5,8 @@ import { useParams } from "react-router";
 
 import { fetchHarDepartmentObjects } from "../utils/axiosHAR";
 
+import AddToCollection from "../components/AddToCollection";
+
 export default function MetArtPieces() {
   const [artPieces, setArtPieces] = useState([]);
 
@@ -71,12 +73,12 @@ export default function MetArtPieces() {
                 alt={item.title}
                 className="h-96 object-cover object-center group-hover:opacity-75 "
               />
-              <h1>classification: {item.classification}</h1>
-              <h1>medium: {item.medium}</h1>
-              <h1>country: {item.culture}</h1>
-              <button className="rounded-md bg-white px-2.5 py-1.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">
-                add to collection
-              </button>
+              <div className="flex flex-col items-start w-11/12 mt-4 mb-4">
+                <h1>classification: {item.classification}</h1>
+                <h1>medium: {item.medium}</h1>
+                <h1>country: {item.culture}</h1>
+              </div>
+              <AddToCollection objectId={item.objectid} apiSource={"HAR"} />
             </div>
           ))}
         </div>

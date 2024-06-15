@@ -14,11 +14,16 @@ export default function Component() {
   const routes = [
     { path: "/", element: <Home />, label: "Home" },
     { path: "/gallery", element: <Gallery />, label: "Gallery" },
-    { path: "/exhibition", element: <Exhibition />, label: "Exhibition" },
+
     {
       path: "/search_and_filter",
       element: <Search />,
       label: "Find Art",
+    },
+    {
+      path: "/exhibition",
+      element: <Exhibition />,
+      label: "Your Art Collection",
     },
     { path: "/account", element: <Account />, label: "Account" },
   ];
@@ -39,7 +44,7 @@ export default function Component() {
           ))}
         </ul>
         <div className="flex items-center">
-          <User className="ml-4 text-xl text-yellow-300 font-medium" />
+          <User className="ml-4" />
         </div>
       </nav>
 
