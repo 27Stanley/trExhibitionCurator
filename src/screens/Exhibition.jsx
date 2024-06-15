@@ -2,11 +2,6 @@ import React from "react";
 import { useContext, useEffect, useState } from "react";
 import { UserContext } from "../components/UserContext";
 
-import { Link } from "react-router-dom";
-
-import { fetchHarObjectById } from "../utils/axiosHAR";
-import { fetchMetObjectsById } from "../utils/axiosMET";
-
 import { getEachArtPiece, removeFromCollection } from "../utils/axios";
 
 export default function Exhibition() {
@@ -16,10 +11,10 @@ export default function Exhibition() {
 
   const [isLoading, setIsLoading] = useState(true);
 
-  const handleRemoveArt = (itemId) => {
-    removeFromCollection(itemId)
+  const handleRemoveArt = (userId, objectId) => {
+    removeFromCollection(userId, objectId)
       .then(() => {
-        console.log(removed);
+        console.log("removed");
       })
       .catch((err) => {
         console.log("error removing art:", err);
@@ -85,11 +80,18 @@ export default function Exhibition() {
                     href={fromMetMuseum ? item.objectURL : item.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-tertiary hover:underline"
+                    className="text-tertiary hover:underline font-light text-sm"
                   >
                     Learn More
                   </a>
-                  {/* <button onClick={handleRemoveArt(objectId)}>Remove</button> */}
+                  <button
+                    className="text-tertiary hover:underline font-light text-sm"
+                    onClick={() => {
+                      handleRemoveArt(userId, objectId);
+                    }}
+                  >
+                    Remove
+                  </button>
                 </div>
               </div>
             );
