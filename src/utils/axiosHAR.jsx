@@ -62,7 +62,7 @@ export const fetchHarObjectById = (objectId) => {
 
 export const searchHarForArt = (searchTerm) => {
   // console.log("searching HAR for", encodeURIComponent(searchTerm));
-  const resSize = 24;
+  const resSize = 100;
   return request
     .get(
       `object?&title=${encodeURIComponent(

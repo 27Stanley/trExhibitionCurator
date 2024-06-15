@@ -41,7 +41,7 @@ export const searchMetForArt = async (searchTerm) => {
   return request
     .get(`search?q=${encodeURIComponent(searchTerm)}&hasImages=true`)
     .then((response) => {
-      const metObjectIds = response.data.objectIDs.slice(0, 24);
+      const metObjectIds = response.data.objectIDs.slice(0, 100);
       const eachArtPromise = metObjectIds.map((objectId) => {
         return fetchMetObjectsById(objectId);
       });

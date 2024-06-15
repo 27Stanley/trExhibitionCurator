@@ -3,6 +3,8 @@ import React from "react";
 import { useState } from "react";
 import SearchBar from "../components/SearchBar";
 
+import AddToCollection from "../components/AddToCollection";
+
 export default function Search() {
   const [searchedArt, setSearchedArt] = useState([]);
 
@@ -11,24 +13,60 @@ export default function Search() {
   };
 
   return (
-    <div className="h-[95vh] flex items-x-center justify-center mt-12">
+    <div className="h-[95vh] flex items-x-center justify-start mt-12 ">
       <SearchBar searchedArt={handleSearchedArt} />
 
-      <div className="justify-items-center">
+      <div className="mt-4 h-[93vh] w-[75vw] rounded-lg overflow-y-auto justify-items-center bg-accent p-2">
         {searchedArt.map((item, index) => {
           const fromMetMuseum = item.objectID !== undefined;
           const fromHarMuseum = item.id !== undefined;
+          // console.log(item);
 
           const objectId = fromMetMuseum ? item.objectID : item.id;
 
           return (
-            <div key={index}>
-              <h1 className="mt-4 text-sm text-gray-700">
-                Item Id: {objectId}
-              </h1>
-              <h1 className="mt-1 text-lg font-medium text-gray-900">
-                Item Name: {item.title}
-              </h1>
+            <div
+              key={index}
+              className={`${
+                index % 2 === 0 ? "bg-gray-100" : ""
+              } p-4 rounded-2xl mb-4 flex items-center`}
+            >
+              <div className="flex-1">
+                <h1 className="mt-2 text-sm text-gray-700">
+                  Item Id: {objectId}
+                </h1>
+                <h1 className="mt-1 text-lg font-medium text-gray-900">
+                  Name: {item.title}
+                </h1>
+
+                <div className="flex flex-col items-start w-11/12 mt-4 mb-4">
+                  <h1>Classification: {item.classification}</h1>
+                  <h1>Medium: {item.medium}</h1>
+                  <h1>Origin: {item.culture}</h1>
+                </div>
+              </div>
+              <div className="flex-1 flex justify-center">
+                <img
+                  src={
+                    fromMetMuseum
+                      ? item.primaryImageSmall
+                      : item.primaryimageurl
+                  }
+                  alt={item.objectName}
+                  className="h-60 w-auto object-cover object-center rounded-2xl"
+                />
+              </div>
+              <div className="flex-1 flex flex-col items-center space-y-2">
+                <AddToCollection />
+                <a
+                  href={fromMetMuseum ? item.objectURL : item.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-tertiary hover:underline font-light text-sm"
+                >
+                  Learn More
+                </a>
+              </div>
             </div>
           );
         })}
