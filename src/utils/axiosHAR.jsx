@@ -53,11 +53,11 @@ export const fetchHarDepartmentObjects = (galleryid) => {
 };
 
 export const fetchHarObjectById = (objectId) => {
-  console.log(objectId);
+  // console.log(objectId);
   return request
-    .get(`/object/${objectId}`)
+    .get(`/object/${objectId}?apikey=${apiKey}`)
     .then((response) => {
-      // console.log(response.data);
+      // console.log(response.data, "here");
       return response.data;
     })
     .catch((err) => {
@@ -68,3 +68,5 @@ export const fetchHarObjectById = (objectId) => {
 // https://api.harvardartmuseums.org/gallery?floor=2&apikey=87ef9f23-aa8d-4650-88d2-c21b99e38bdb
 
 // https://api.harvardartmuseums.org/object?gallery=2700&hasimage=1&apikey=87ef9f23-aa8d-4650-88d2-c21b99e38bdb
+
+//https://api.harvardartmuseums.org/object/209698?apikey=87ef9f23-aa8d-4650-88d2-c21b99e38bdb

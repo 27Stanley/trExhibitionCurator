@@ -73,17 +73,19 @@ export default function MetArtPieces() {
                 Item Id: {item.objectID}
               </h1>
               <h1 className="mt-1 text-lg font-medium text-gray-900">
-                Item Name: {item.title}
+                {item.title}
               </h1>
               <img
                 src={item.primaryImageSmall}
                 alt={item.objectName}
                 className="h-72 w-auto object-cover object-center group-hover:opacity-75"
               />
-              <h1>classification: {item.classification}</h1>
-              <h1>medium: {item.medium}</h1>
-              <h1>country: {item.culture}</h1>
-              <AddToCollection />
+              <div className="flex flex-col items-start w-11/12 mt-4 mb-4">
+                <h1>classification: {item.classification}</h1>
+                <h1>medium: {item.medium}</h1>
+                <h1>country: {item.culture}</h1>
+              </div>
+              <AddToCollection objectId={item.objectID} apiSource={"MET"} />
             </div>
           ))}
         </div>
