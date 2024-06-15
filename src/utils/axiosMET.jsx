@@ -15,12 +15,10 @@ export const fetchMetDepartments = (department) => {
     });
 };
 
-export const fetchSingleDepartment = (departmentId) => {
-  // console.log(`fetching from department no.${departmentId}`);
+export const fetchSingleDepartment = (dgepartmentId) => {
   return request
     .get(`/objects?departmentIds=${departmentId}&hasImages=true&q=`)
     .then((response) => {
-      // console.log(response.data, "single department response here");
       return response.data;
     })
     .catch((err) => {
@@ -32,7 +30,6 @@ export const fetchMetObjectsById = (objectId) => {
   return request
     .get(`/objects/${objectId}`)
     .then((response) => {
-      // console.log(response.data, "objects response");
       return response.data;
     })
     .catch((err) => {
@@ -40,8 +37,20 @@ export const fetchMetObjectsById = (objectId) => {
     });
 };
 
-export const searchMetForArt = (searchTerm) => {
-  console.log(searchterm);
+export const searchMetForArt = async (searchTerm) => {
+  return request
+    .get(`search?q=${encodeURIComponent(searchTerm)}&hasImages=true`)
+    .then((response) => {
+      const metObjectIds = response.data.objectIDs.slice(0, 24);
+      const eachArtPromise = metObjectIds.map((objectId) => {
+        return fetchMetObjectsById(objectId);
+      });
+
+      return Promise.all(eachArtPromise);
+    })
+    .catch((err) => {
+      console.log("err occured searching for art", err);
+    });
 };
 
 // https://collectionapi.metmuseum.org/public/collection/v1/search?departmentId=6&q=cat

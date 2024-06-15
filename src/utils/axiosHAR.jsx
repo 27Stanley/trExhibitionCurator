@@ -61,7 +61,21 @@ export const fetchHarObjectById = (objectId) => {
 };
 
 export const searchHarForArt = (searchTerm) => {
-  console.log(searchterm);
+  // console.log("searching HAR for", encodeURIComponent(searchTerm));
+  const resSize = 24;
+  return request
+    .get(
+      `object?&title=${encodeURIComponent(
+        searchTerm
+      )}&hasimage=1&size=${resSize}&apikey=${apiKey}`
+    )
+    .then((response) => {
+      // console.log("art found from harvard", response.data.records);
+      return response.data.records;
+    })
+    .catch((err) => {
+      console.log("err occured searching for art", err);
+    });
 };
 
 // https://api.harvardartmuseums.org/gallery?floor=2&apikey=87ef9f23-aa8d-4650-88d2-c21b99e38bdb
