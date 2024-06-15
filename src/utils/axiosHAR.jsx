@@ -31,20 +31,17 @@ export const fetchHarDepartments = () => {
   };
 
   return fetchPages().then(() => {
-    // console.log(galleryData);
     return galleryData;
   });
 };
 
 export const fetchHarDepartmentObjects = (galleryid) => {
-  // console.log(`fetching from department no.${galleryid}`);
   const resSize = 100;
   return request
     .get(
       `/object?gallery=${galleryid}&hasimage=1&size=${resSize}&apikey=${apiKey}`
     )
     .then((response) => {
-      // console.log(response.data);
       return response.data;
     })
     .catch((err) => {
@@ -53,11 +50,9 @@ export const fetchHarDepartmentObjects = (galleryid) => {
 };
 
 export const fetchHarObjectById = (objectId) => {
-  // console.log(objectId);
   return request
     .get(`/object/${objectId}?apikey=${apiKey}`)
     .then((response) => {
-      // console.log(response.data, "here");
       return response.data;
     })
     .catch((err) => {
@@ -65,8 +60,14 @@ export const fetchHarObjectById = (objectId) => {
     });
 };
 
+export const searchHarForArt = (searchTerm) => {
+  console.log(searchterm);
+};
+
 // https://api.harvardartmuseums.org/gallery?floor=2&apikey=87ef9f23-aa8d-4650-88d2-c21b99e38bdb
 
 // https://api.harvardartmuseums.org/object?gallery=2700&hasimage=1&apikey=87ef9f23-aa8d-4650-88d2-c21b99e38bdb
 
 //https://api.harvardartmuseums.org/object/209698?apikey=87ef9f23-aa8d-4650-88d2-c21b99e38bdb
+
+//https://api.harvardartmuseums.org/object?&title=${encodeURIComponent(Japanese Painting)}&apikey=87ef9f23-aa8d-4650-88d2-c21b99e38bdb

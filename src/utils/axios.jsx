@@ -29,7 +29,6 @@ export const getUsersArtCollection = (userId) => {
           .get(`artCollections/${collectionId}`)
           .then((response) => {
             const curatedArt = response.data;
-            // console.log(curatedArt.artworks, "response for art collectio here");
             resolve(curatedArt.artworks);
           })
           .catch((err) => {
@@ -51,13 +50,11 @@ export const getEachArtPiece = (userId) => {
         curatedArtArr.map((artPiece) => {
           if (artPiece.department === "MET") {
             return fetchMetObjectsById(artPiece.objectId).then((response) => {
-              // console.log(response, "fetched met art piece");
               const metArtPiece = response;
               curatedArt.push(metArtPiece);
             });
           } else if (artPiece.department === "HAR") {
             return fetchHarObjectById(artPiece.objectId).then((response) => {
-              // console.log(response, "fetched met art piece");
               const harArtPiece = response;
               curatedArt.push(harArtPiece);
             });
@@ -68,7 +65,6 @@ export const getEachArtPiece = (userId) => {
       );
     })
     .then(() => {
-      // console.log(curatedArt);
       return curatedArt;
     })
     .catch((err) => {
@@ -92,10 +88,8 @@ export const getEachArtPiece = (userId) => {
 // ]
 
 export const addToArtCollection = (userId, objectId, apiSource) => {
-  console.log(userId, objectId, apiSource, "in axios");
   return getUsersArtCollectionId(userId)
     .then((collectionId) => {
-      console.log(`got users art collection id: ${collectionId}`);
       const patchJson = {
         department: apiSource,
         objectId: objectId,
@@ -111,7 +105,6 @@ export const removeFromCollection = (userId, objectId) => {
   console.log(userId, objectId, "in axios");
   return getUsersArtCollectionId(userId)
     .then((collectionId) => {
-      console.log(`got users art collection id: ${collectionId}`);
       const deleteJson = {
         objectId: objectId,
       };
@@ -123,3 +116,5 @@ export const removeFromCollection = (userId, objectId) => {
 };
 
 // getUsersArtCollection("666a315d423c437f3cccce63");
+
+//https://trexicurabe.onrender.com/artCollections/666a315d423c437f3cccce65

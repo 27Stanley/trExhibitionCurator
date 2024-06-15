@@ -40,8 +40,14 @@ export const fetchMetObjectsById = (objectId) => {
     });
 };
 
+export const searchMetForArt = (searchTerm) => {
+  console.log(searchterm);
+};
+
 // https://collectionapi.metmuseum.org/public/collection/v1/search?departmentId=6&q=cat
 
 // https://collectionapi.metmuseum.org/public/collection/v1/objects?departmentIds=4&hasImages=true&q=
 
 //https://collectionapi.metmuseum.org/public/collection/v1/objects/22067
+
+//https://collectionapi.metmuseum.org/public/collection/v1/search?q=$japanese%20painting&hasImages=true

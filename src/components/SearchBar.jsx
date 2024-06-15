@@ -1,6 +1,9 @@
 import React from "react";
 import { useState } from "react";
 
+import { searchHarForArt } from "../utils/axiosHAR";
+import { searchMetForArt } from "../utils/axiosMET";
+
 const SearchBar = () => {
   const [query, setQuery] = useState("");
 
