@@ -3,91 +3,74 @@ import React from "react";
 import { useState } from "react";
 import SearchBar from "../components/SearchBar";
 
-export default function Exhibition() {
-  // const [category, setCategory] = useState("");
-  // const [database, setDatabase] = useState("");
-  // const [medium, setMedium] = useState("");
+import AddToCollection from "../components/AddToCollection";
 
-  // const handleCategoryChange = (event) => {
-  //   setCategory(event.target.value);
-  // };
+export default function Search() {
+  const [searchedArt, setSearchedArt] = useState([]);
 
-  // const handleDatabaseChange = (event) => {
-  //   setDatabase(event.target.value);
-  // };
-
-  // const handleMediumChange = (event) => {
-  //   setMedium(event.target.value);
-  // };
+  const handleSearchedArt = (newSearchedArt) => {
+    setSearchedArt(newSearchedArt);
+  };
 
   return (
-    <div className="h-[95vh] flex items-x-center justify-center mt-12">
-      <SearchBar />
-      {/* <form className="flex space-x-8">
-        <div>
-          <label
-            htmlFor="category"
-            className="block text-sm font-medium text-gray-700"
-          >
-            Categories
-          </label>
-          <select
-            id="category"
-            name="category"
-            value={category}
-            onChange={handleCategoryChange}
-            className="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-          >
-            <option value="">Select a category</option>
-            <option value="cata1">cata1</option>
-            <option value="cata2">cata2</option>
-            <option value="cata3">cata3</option>
-            <option value="cata4">cata4</option>
-          </select>
-        </div>
+    <div className="h-[95vh] flex items-x-center justify-start mt-12 ">
+      <SearchBar searchedArt={handleSearchedArt} />
 
-        <div>
-          <label
-            htmlFor="medium"
-            className="block text-sm font-medium text-gray-700"
-          >
-            Medium
-          </label>
-          <select
-            id="medium"
-            name="medium"
-            value={medium}
-            onChange={handleMediumChange}
-            className="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-          >
-            <option value="">Select a medium</option>
-            <option value="painting">Painting</option>
-            <option value="sculpture">Sculpture</option>
-            <option value="photography">Photography</option>
-            <option value="installation">Installation</option>
-          </select>
-        </div>
-        <div>
-          <label
-            htmlFor="Database"
-            className="block text-sm font-medium text-gray-700"
-          >
-            Database
-          </label>
-          <select
-            id="database"
-            name="database"
-            value={database}
-            onChange={handleDatabaseChange}
-            className="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-          >
-            <option value="">Select a Database</option>
-            <option value="MET">MET</option>
-            <option value="Harvard">Harvard</option>
-            <option value="All">All</option>
-          </select>
-        </div>
-      </form> */}
+      <div className="mt-4 h-[93vh] w-[75vw] rounded-lg overflow-y-auto justify-items-center bg-accent p-2">
+        {searchedArt.map((item, index) => {
+          const fromMetMuseum = item.objectID !== undefined;
+          const fromHarMuseum = item.id !== undefined;
+          // console.log(item);
+
+          const objectId = fromMetMuseum ? item.objectID : item.id;
+
+          return (
+            <div
+              key={index}
+              className={`${
+                index % 2 === 0 ? "bg-gray-100" : ""
+              } p-4 rounded-2xl mb-4 flex items-center`}
+            >
+              <div className="flex-1">
+                <h1 className="mt-2 text-sm text-gray-700">
+                  Item Id: {objectId}
+                </h1>
+                <h1 className="mt-1 text-lg font-medium text-gray-900">
+                  Name: {item.title}
+                </h1>
+
+                <div className="flex flex-col items-start w-11/12 mt-4 mb-4">
+                  <h1>Classification: {item.classification}</h1>
+                  <h1>Medium: {item.medium}</h1>
+                  <h1>Origin: {item.culture}</h1>
+                </div>
+              </div>
+              <div className="flex-1 flex justify-center">
+                <img
+                  src={
+                    fromMetMuseum
+                      ? item.primaryImageSmall
+                      : item.primaryimageurl
+                  }
+                  alt={item.objectName}
+                  className="h-60 w-auto object-cover object-center rounded-2xl"
+                />
+              </div>
+              <div className="flex-1 flex flex-col items-center space-y-2">
+                <AddToCollection />
+                <a
+                  href={fromMetMuseum ? item.objectURL : item.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-tertiary hover:underline font-light text-sm"
+                >
+                  Learn More
+                </a>
+              </div>
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 }
