@@ -102,7 +102,7 @@ export const addToArtCollection = (userId, objectId, apiSource) => {
 };
 
 export const removeFromCollection = (userId, objectId) => {
-  console.log(userId, objectId, "in axios");
+  // console.log(userId, objectId, "in axios");
   return getUsersArtCollectionId(userId)
     .then((collectionId) => {
       const deleteJson = {
