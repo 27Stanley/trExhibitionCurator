@@ -22,7 +22,7 @@ const SearchBar = ({ searchedArt }) => {
         const filteredArt = searchedArtResponses.filter((item) => {
           return item && item.culture !== undefined;
         });
-        console.log(filteredArt);
+        // console.log(filteredArt);
         searchedArt(filteredArt);
       })
       .catch((err) => {
