@@ -1,6 +1,7 @@
 import React from "react";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
+import { Link } from "react-router-dom";
 
 import { useState } from "react";
 
@@ -47,9 +48,11 @@ export default function Home() {
           and discover a treasure trove of artistic masterpieces spanning
           centuries.
         </p>
-        <button className="mt-4 px-6 py-2 bg-accent text-slate-800 rounded-lg hover:bg-tertiary hover:text-slate-50">
-          Start Exploring
-        </button>
+        <Link to="/gallery">
+          <button className="mt-4 px-6 py-2 bg-accent text-slate-800 rounded-lg hover:bg-tertiary hover:text-slate-50">
+            Start Exploring
+          </button>
+        </Link>
       </section>
 
       <section className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -71,9 +74,11 @@ export default function Home() {
               Raphael, and the timeless allure of Botticelli's Birth of Venus.
               Be captivated by the beauty and grandeur of the Renaissance.
             </p>
-            <button className="mt-4 px-6 py-2 bg-accent text-slate-800 rounded-lg hover:bg-tertiary hover:text-slate-50">
-              Explore Renaissance Masterpieces
-            </button>
+            <Link to="/harvardDepartments/2540">
+              <button className="mt-4 px-6 py-2 bg-accent text-slate-800 rounded-lg hover:bg-tertiary hover:text-slate-50">
+                Explore Renaissance Masterpieces
+              </button>
+            </Link>
           </div>
         </div>
         <div className="rounded-lg bg-secondary shadow-md p-6">
@@ -93,11 +98,19 @@ export default function Home() {
             vibrant colors, unique textures, and thought-provoking themes that
             define contemporary art.
           </p>
-          <button className="mt-4 px-6 py-2 bg-accent text-slate-800 rounded-lg hover:bg-tertiary hover:text-slate-50">
-            Explore Contemporary Art
-          </button>
+          <Link to="/harvardDepartments/2700">
+            <button className="mt-4 px-6 py-2 bg-accent text-slate-800 rounded-lg hover:bg-tertiary hover:text-slate-50">
+              Explore Modern Art
+            </button>
+          </Link>
         </div>
       </section>
     </div>
   );
 }
+
+// /gallery - explore
+
+// /harvardDepartments/2540 - renniesance
+
+// /harvardDepartments/2700 - modern

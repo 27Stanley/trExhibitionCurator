@@ -15,7 +15,7 @@ export const fetchMetDepartments = (department) => {
     });
 };
 
-export const fetchSingleDepartment = (dgepartmentId) => {
+export const fetchSingleDepartment = (departmentId) => {
   return request
     .get(`/objects?departmentIds=${departmentId}&hasImages=true&q=`)
     .then((response) => {

@@ -20,7 +20,7 @@ export default function Search() {
         {searchedArt.map((item, index) => {
           const fromMetMuseum = item.objectID !== undefined;
           const fromHarMuseum = item.id !== undefined;
-          // console.log(item);
+          console.log(item.dated);
 
           const objectId = fromMetMuseum ? item.objectID : item.id;
 
@@ -42,7 +42,8 @@ export default function Search() {
                 <div className="flex flex-col items-start w-11/12 mt-4 mb-4">
                   <h1>Classification: {item.classification}</h1>
                   <h1>Medium: {item.medium}</h1>
-                  <h1>Origin: {item.culture}</h1>
+                  <h1>Culture: {item.culture}</h1>
+                  <h1>Period:{item.dated}</h1>
                 </div>
               </div>
               <div className="flex-1 flex justify-center">
