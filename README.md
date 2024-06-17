@@ -19,28 +19,33 @@ This launches the application using Vite and can be viewed and used at-
 <h4>On using the app on `https://exicura.netlify.app/`:</h4>
 
 <h6>Landing Page:<h6>
-The default page for the web app, it showcases a carousel of art images as a hero shot, promotes exploration of custom art collections from the Api's, and features highlighted sections on Renaissance and contemporary art exhibitions, with navigation to those links for further exploration. 
+  <p>The default page for the web app, it showcases a carousel of art images as a hero shot, promotes exploration of custom art collections from the Api's, and features highlighted sections on Renaissance and contemporary art exhibitions, with navigation to those links for further exploration. 
 
 Above each screen of the app will be a navbar component and a user section.
 Below each screen will have the footer with some text about the app.
 
-The default comment from the user section will ask the user to login, redirecting to the account page where the user can login with a pre-registered username or create a new account with a unique username.
+The default comment from the user section will ask the user to login, redirecting to the account page where the user can login with a pre-registered username or create a new account with a unique username.</p>
+
 
 
 <h6>Gallery:<h6>
-The Gallery screen fetches and displays all the art department data from the Metropolitan Museum of Art and the Harvard Arts Museum. It presents them in a categorized list format with interactable links for further exploration. When choosing one from the list, it includes will display a loading animation for a better user experience while the data is being fetched.
+    <p>The Gallery screen fetches and displays all the art department data from the Metropolitan Museum of Art and the Harvard Arts Museum. It presents them in a categorized list format with interactable links for further exploration. When choosing one from the list, it includes will display a loading animation for a better user experience while the data is being fetched.
 
-Upon clicking into one of the catagories, users can view the art catagorised by that museum. If they are logged in while doing so, there is the option to add art that they like to their personal curated collection available on the "your art collection" tab in the navbar. 
+Upon clicking into one of the catagories, users can view the art catagorised by that museum. If they are logged in while doing so, there is the option to add art that they like to their personal curated collection available on the "your art collection" tab in the navbar. </p>
+
 
 <h6>Find Art:<h6>
-The Find Art screen allows users to search for artwork based on their own criteria, displaying the results in a detailed, scrollable list format. Here, the users can find more detailed information for each search result by follow links to learn more about each artwork from the respective museum's website. Afterwards, users can also still choose to add that art piece to their collection if they choose to.
+    <p>The Find Art screen allows users to search for artwork based on their own criteria, displaying the results in a detailed, scrollable list format. Here, the users can find more detailed information for each search result by follow links to learn more about each artwork from the respective museum's website. Afterwards, users can also still choose to add that art piece to their collection if they choose to.</p>
+
 
 <h6>Your Art Collection:<h6>
-The Your Art Collection screen displays a user's curated art collection, retrieved from the mongodb database. Here, the user can view the art they've added from exploring the apis. If there are any that they would wish to refresh their knowledge by clicking the learn more link. If they decide that they do not want that piece in their collection, they can also remove it from the collection.
+    <p>The Your Art Collection screen displays a user's curated art collection, retrieved from the mongodb database. Here, the user can view the art they've added from exploring the apis. If there are any that they would wish to refresh their knowledge by clicking the learn more link. If they decide that they do not want that piece in their collection, they can also remove it from the collection.</p>
+
 
 
 <h6>Account:<h6>
-The Account screen has very simple user authentication, allowing users to log in or create a new account. When logging in or creating an account, it may take a while as the host mongo backend may need some time to startup to communicate with the hosted website. Upon login or creating an account with a unique username, the app will redirect their curated art collection screen or the home screen respectivley. At the end of the session, users may choose to logout from here, refreshing the page. All user activity relating to adding or removing art from their collection will be saved.
+    <p>The Account screen has very simple user authentication, allowing users to log in or create a new account. When logging in or creating an account, it may take a while as the host mongo backend may need some time to startup to communicate with the hosted website. Upon login or creating an account with a unique username, the app will redirect their curated art collection screen or the home screen respectivley. At the end of the session, users may choose to logout from here, refreshing the page. All user activity relating to adding or removing art from their collection will be saved.</p>
+
 
 <h3>Backend: https://github.com/27Stanley/trExiCuraBE</h3>
 
