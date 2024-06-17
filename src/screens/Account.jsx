@@ -1,6 +1,7 @@
 import React from "react";
 import { useContext } from "react";
 import { UserContext } from "../components/UserContext";
+import { Link } from "react-router-dom";
 
 export default function Account() {
   const { username, setUsername, userId } = useContext(UserContext);
@@ -15,13 +16,14 @@ export default function Account() {
       className="h-[75vh] flex items-center justify-center mt-12
     "
     >
-      <button
-        className="px-6 py-3 text-lg text-white bg-secondary rounded hover:bg-accent hover:text-tertiary focus:outline-none
+      <Link to="/exhibition">
+        <button
+          className="px-6 py-3 text-lg text-white bg-secondary rounded hover:bg-accent hover:text-tertiary focus:outline-none
       "
-        onClick={handleViewCollection}
-      >
-        View Curated Art
-      </button>
+        >
+          View Curated Art
+        </button>
+      </Link>
     </div>
   );
 }

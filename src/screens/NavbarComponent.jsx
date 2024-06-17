@@ -48,13 +48,7 @@ export default function Component() {
         </div>
       </nav>
 
-      <div className="pt-16">
-        <Routes>
-          {routes.map((route, index) => (
-            <Route key={index} path={route.path} element={route.element} />
-          ))}
-        </Routes>
-      </div>
+      <div className="pt-16"></div>
     </div>
   );
 }
