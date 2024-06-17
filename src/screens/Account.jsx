@@ -1,7 +1,7 @@
 import React from "react";
 import { useContext, useState } from "react";
 import { UserContext } from "../components/UserContext";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import { createNewUser, checkUserExists } from "../utils/axios";
 
@@ -13,6 +13,8 @@ export default function Account() {
   const [newUsername, setNewUsername] = useState("");
   const [loginUsername, setLoginUsername] = useState("");
 
+  const navigate = useNavigate();
+
   const handleLogin = async (e) => {
     e.preventDefault();
     console.log("clickaLogin");
@@ -23,6 +25,7 @@ export default function Account() {
       setUsername(user.username);
       setUserId(user._id);
       setIsLoggedIn(true);
+      navigate("/exhibition");
     } else {
       console.log("user does not exist");
     }
