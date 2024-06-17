@@ -118,3 +118,41 @@ export const removeFromCollection = (userId, objectId) => {
 // getUsersArtCollection("666a315d423c437f3cccce63");
 
 //https://trexicurabe.onrender.com/artCollections/666a315d423c437f3cccce65
+
+export const createNewUser = (newUsername) => {
+  console.log(newUsername);
+  const postJson = {
+    username: newUsername,
+  };
+  return request
+    .post(`users`, postJson)
+    .then((response) => {
+      console.log(response);
+    })
+    .catch((err) => {
+      console.log("error creating new User: ", err);
+    });
+};
+
+export const checkUserExists = (submittedUsername) => {
+  return request
+    .get(`users`)
+    .then((response) => {
+      console.log(response.data);
+      const users = response.data;
+
+      function findUser(submittedUsername, users) {
+        for (let user of users) {
+          if (user.username === submittedUsername) {
+            return user;
+          }
+        }
+        return null;
+      }
+
+      return findUser(submittedUsername, users);
+    })
+    .catch((err) => {
+      console.log("error fetching users data: ", err);
+    });
+};

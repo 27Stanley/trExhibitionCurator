@@ -1,19 +1,93 @@
 import React from "react";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { UserContext } from "../components/UserContext";
 import { Link } from "react-router-dom";
 
-export default function Account() {
-  const { username, setUsername, userId } = useContext(UserContext);
+import { createNewUser, checkUserExists } from "../utils/axios";
 
-  const handleViewCollection = (e) => {
+export default function Account() {
+  const { username, setUsername, userId, setUserId } = useContext(UserContext);
+
+  const [isLoggedIn, setIsLoggedIn] = useState(!Boolean(username));
+
+  const [newUsername, setNewUsername] = useState("");
+  const [loginUsername, setLoginUsername] = useState("");
+
+  const handleLogin = async (e) => {
     e.preventDefault();
-    console.log("clicka");
+    console.log("clickaLogin");
+
+    const user = await checkUserExists(loginUsername);
+
+    if (user) {
+      setUsername(user.username);
+      setUserId(user._id);
+      setIsLoggedIn(true);
+    } else {
+      console.log("user does not exist");
+    }
   };
 
-  return (
+  const handleLogout = (e) => {
+    console.log("clickaLogout");
+    setUsername(null);
+    setUserId(null);
+    setIsLoggedIn(false);
+    window.location.reload();
+  };
+
+  const handleCreateAccount = (e) => {
+    e.preventDefault();
+    console.log("clickaCreate");
+    createNewUser(newUsername);
+    setIsLoggedIn(true);
+  };
+
+  // console.log(username, setUsername, userId);
+
+  return isLoggedIn ? (
     <div
-      className="h-[75vh] flex items-center justify-center mt-12
+      className="h-[75vh] flex flex-col justify-center items-center
+    "
+    >
+      <div>
+        <h1 className="ml-3">
+          Log In: (or use default user: whimsicle_willow)
+        </h1>
+        <input
+          className="border-2 border-accent p-2 mx-3"
+          type="text"
+          placeholder="Username"
+          value={loginUsername}
+          onChange={(e) => setLoginUsername(e.target.value)}
+        />
+        <button
+          onClick={handleLogin}
+          className=" mt-1 mb-5 px-3 py-1.5 text-lg text-white bg-tertiary rounded hover:bg-accent hover:text-tertiary focus:outline-none
+      "
+        >
+          Login
+        </button>
+      </div>
+      <div>
+        <h1 className="ml-3">Create Account</h1>
+        <input
+          className="border-2 border-accent p-2 mx-3"
+          type="text"
+          placeholder="Your Username"
+        />
+        <button
+          onClick={handleCreateAccount}
+          className=" mt-1 mb-5 px-3 py-1.5 text-lg text-white bg-tertiary rounded hover:bg-accent hover:text-tertiary focus:outline-none
+      "
+        >
+          Create Account
+        </button>
+      </div>
+    </div>
+  ) : (
+    <div
+      className="h-[75vh] flex flex-col justify-center items-center
     "
     >
       <Link to="/exhibition">
@@ -24,6 +98,16 @@ export default function Account() {
           View Curated Art
         </button>
       </Link>
+
+      <div>
+        <button
+          onClick={handleLogout}
+          className=" my-5 px-3 py-1.5 text-lg text-white bg-tertiary rounded hover:bg-accent hover:text-tertiary focus:outline-none
+      "
+        >
+          Logout
+        </button>
+      </div>
     </div>
   );
 }

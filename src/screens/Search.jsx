@@ -75,3 +75,16 @@ export default function Search() {
     </div>
   );
 }
+
+{
+  /* <section className=" w-[31.25rem] h-[31.25rem]">
+          <dotlottie-player
+            src="https://lottie.host/6f23ff8b-d7ef-42c3-9338-4ab2c0951d83/9TANaJo0fG.json"
+            background="transparent"
+            speed="1"
+            loop
+            autoplay
+            className="mx-auto"
+          ></dotlottie-player>
+        </section> */
+}

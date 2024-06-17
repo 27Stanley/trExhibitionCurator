@@ -3,7 +3,7 @@ import { useContext } from "react";
 import { UserContext } from "./UserContext";
 
 export default function User() {
-  const { username, setUsername, userId } = useContext(UserContext);
+  const { username, setUsername, userId, setUserId } = useContext(UserContext);
 
   const [loggedIn, setLoggedIn] = useState(false);
 
@@ -25,10 +25,6 @@ export default function User() {
     setShowLogin(false);
   };
 
-  const handleLogin = (e) => {
-    e.preventDefault();
-  };
-
   return (
     <div className="userContainer text-right">
       {loggedIn ? (
@@ -45,7 +41,7 @@ export default function User() {
           >
             {showLogin
               ? "Enter your username"
-              : "Please log in to see your curated collection"}
+              : "Please log in at the accounts tab to see your curated collection"}
           </p>
         </div>
       )}
