@@ -102,14 +102,15 @@ export const addToArtCollection = (userId, objectId, apiSource) => {
 };
 
 export const removeFromCollection = (userId, objectId) => {
-  // console.log(userId, objectId, "in axios");
+  console.log(userId, objectId, "in axios");
   return getUsersArtCollectionId(userId)
     .then((collectionId) => {
+      console.log(collectionId, "user art collection id ");
       const deleteJson = {
         objectId: objectId,
       };
       console.log("deleting");
-      return request.delete(`artCollections/${collectionId}`, deleteJson);
+      request.delete(`artCollections/${collectionId}`, { data: deleteJson });
     })
     .catch((err) => {
       console.log("error removing from collection,", err);
