@@ -1,9 +1,24 @@
-To create a web application where users can search for artworks, create personalized exhibitions, and view detailed information about each piece. 
+A web application where users can search for artworks, create personalized exhibitions, and view detailed information about each piece.
 
-From utilizing free APIs from The Metropolitan Museum of Art and the Harvard Art Museums, users can access extensive art collections and the web app hopes to provide an engaging experience by allowing users to filter and sort artworks based on various criteria, save their favorite pieces to a temporary collection, and curate personalized exhibitions that can be viewed in use.
+Utilized free APIs from The Metropolitan Museum of Art and the Harvard Art Museums, users can access extensive art collections and the web app hopes to provide an engaging experience by allowing users to filter and search artworks based on their own criteria, they can then save their favorite pieces to their collection, and curate a personalized exhibition that can be viewed.
 
 The application is built in the frontend with React with axios to fetch from the api databases and styled using Tailwind CSS and the backend with Express and Mongo to handle some server side logic and user data/collection management. Key features to include interactive thumbnails that display detailed artwork information upon selecting, and a temporary collection feature that allows users to easily add or remove artworks. This personalized exhibition feature enables users to curate their own collections.
 
+Frontend:
+
+On using the app locally for yourself:
+To start the web app locally, clone the project repository to your local machine. Navigate to the projects root directory and run:
+`npm install` to install all necessary dependencies.
+
+Once the installation is finished, you can start the development server with:
+`npm run dev`.
+
+This launches the application using Vite and can be viewed and used at:
+`http://localhost:{4-digit-port}`
+
+On using the app on `https://exicura.netlify.app/`:
+
+Landing Page -
 
 Backend repo: https://github.com/27Stanley/trExiCuraBE
 
@@ -39,4 +54,4 @@ Request Type: DELETE Endpoint: /users/{user_id}
 Example Request: GET https://trexicurabe.onrender.com/users/${userId}
 
 Curated Collections Endpoints:
-tba 
+tba
