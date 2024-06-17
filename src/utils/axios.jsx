@@ -108,6 +108,7 @@ export const removeFromCollection = (userId, objectId) => {
       const deleteJson = {
         objectId: objectId,
       };
+      console.log("deleting");
       return request.delete(`artCollections/${collectionId}`, deleteJson);
     })
     .catch((err) => {
@@ -120,14 +121,14 @@ export const removeFromCollection = (userId, objectId) => {
 //https://trexicurabe.onrender.com/artCollections/666a315d423c437f3cccce65
 
 export const createNewUser = (newUsername) => {
-  console.log(newUsername);
+  console.log(newUsername, "here");
   const postJson = {
     username: newUsername,
   };
   return request
     .post(`users`, postJson)
     .then((response) => {
-      console.log(response);
+      return response.data;
     })
     .catch((err) => {
       console.log("error creating new User: ", err);

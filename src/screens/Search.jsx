@@ -8,8 +8,15 @@ import AddToCollection from "../components/AddToCollection";
 export default function Search() {
   const [searchedArt, setSearchedArt] = useState([]);
 
+  const [searching, setSearching] = useState(false);
+
   const handleSearchedArt = (newSearchedArt) => {
     setSearchedArt(newSearchedArt);
+    setSearching(false);
+  };
+
+  const handleSearching = () => {
+    setSearching(true);
   };
 
   return (

@@ -14,6 +14,7 @@ export default function Exhibition() {
   const handleRemoveArt = (userId, objectId) => {
     removeFromCollection(userId, objectId)
       .then(() => {
+        setCuratedArtSelection(curatedArtSelection);
         console.log("removed");
       })
       .catch((err) => {

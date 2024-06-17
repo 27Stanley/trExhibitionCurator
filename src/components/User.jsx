@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { useContext } from "react";
 import { UserContext } from "./UserContext";
+import { useNavigate } from "react-router-dom";
 
 export default function User() {
   const { username, setUsername, userId, setUserId } = useContext(UserContext);
 
   const [loggedIn, setLoggedIn] = useState(false);
 
-  const [showLogin, setShowLogin] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (username) {
@@ -15,14 +16,8 @@ export default function User() {
     }
   }, [username]);
 
-  const handleMouseHover = () => {
-    console.log("showlogin");
-    setShowLogin(true);
-  };
-
-  const handleMouseUnHover = () => {
-    console.log("unshowlogin");
-    setShowLogin(false);
+  const handleMouseClick = () => {
+    navigate("/account");
   };
 
   return (
@@ -36,12 +31,9 @@ export default function User() {
         <div>
           <p
             className="text-base hover:text-blue-500 cursor-pointer"
-            onMouseDown={handleMouseHover}
-            onMouseLeave={handleMouseUnHover}
+            onMouseDown={handleMouseClick}
           >
-            {showLogin
-              ? "Enter your username"
-              : "Please log in at the accounts tab to see your curated collection"}
+            Login to curate your own art
           </p>
         </div>
       )}

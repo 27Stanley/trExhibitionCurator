@@ -17,7 +17,6 @@ export default function Account() {
 
   const handleLogin = async (e) => {
     e.preventDefault();
-    console.log("clickaLogin");
 
     const user = await checkUserExists(loginUsername);
 
@@ -39,14 +38,20 @@ export default function Account() {
     window.location.reload();
   };
 
-  const handleCreateAccount = (e) => {
+  const handleCreateAccount = async (e) => {
     e.preventDefault();
-    console.log("clickaCreate");
-    createNewUser(newUsername);
-    setIsLoggedIn(true);
-  };
 
-  // console.log(username, setUsername, userId);
+    const registerUser = await createNewUser(newUsername);
+
+    if (registerUser) {
+      setUsername(registerUser.user.username);
+      setUserId(registerUser.user._id);
+      setIsLoggedIn(true);
+      navigate("/");
+    } else {
+      console.log("error creating new user");
+    }
+  };
 
   return isLoggedIn ? (
     <div
@@ -78,6 +83,8 @@ export default function Account() {
           className="border-2 border-accent p-2 mx-3"
           type="text"
           placeholder="Your Username"
+          value={newUsername}
+          onChange={(e) => setNewUsername(e.target.value)}
         />
         <button
           onClick={handleCreateAccount}
